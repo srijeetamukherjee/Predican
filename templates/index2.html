@@ -1,0 +1,39 @@
+<!DOCTYPE html>
+<html >
+
+<head>
+  <meta charset="UTF-8">
+  <title>Lung Cancer Predictor</title>
+  <link href='https://fonts.googleapis.com/css?family=Pacifico' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Arimo' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Hind:300' rel='stylesheet' type='text/css'>
+<link href='https://fonts.googleapis.com/css?family=Open+Sans+Condensed:300' rel='stylesheet' type='text/css'>
+<link rel="shortcut icon" href="favicon.ico" type="image/x-icon">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/style.css') }}">
+<link rel="stylesheet" href="css/style1.css" />
+
+</head>
+
+<body>
+ <div class="login">
+	<h1>Predict Lung Cancer</h1>
+     <h3> Enter the following values to predict whether Cancer present or not </h3>
+
+     <!-- Main Input For Receiving Query to our ML -->
+    <form action="{{ url_for('predict')}}"method="post">
+    	<input type="text" name="Number_of_cigarettes_per_day" placeholder="Number_of_cigarettes_per_day" required="required" />
+        <input type="text" name="Passive_smoking_coverage" placeholder="Passive_smoking_coverage" required="required" />
+		<input type="text" name="Alcohol_use_per_day" placeholder="Alcohol_use_per_day" required="required" />
+
+        <button type="submit" class="btn">Predict</button>
+    </form>
+
+   <br>
+   <br>
+   {{ prediction_text }}
+
+ </div>
+
+
+</body>
+</html>
